@@ -1,0 +1,47 @@
+"use client";
+
+import dynamic from "next/dynamic";
+import Link from "next/link";
+import { HomeIcon } from "lucide-react";
+import { CornerBrackets } from "@/components/ui/corner-brackets";
+import { Button } from "@/components/ui/button";
+
+const AsciiCosmos = dynamic(() => import("@/components/AsciiCosmos"), {
+  ssr: false,
+});
+
+export default function NotFound() {
+  return (
+    <div className="relative -mx-6 flex min-h-[80vh] items-center justify-center md:-mx-0">
+      <div className="fixed inset-0 z-0">
+        <AsciiCosmos />
+      </div>
+
+      <div className="relative z-10 flex flex-col items-center gap-6 text-center">
+        <p className="font-[Doto] text-[8rem] font-black leading-none tracking-tighter md:text-[12rem]">
+          404
+        </p>
+
+        <div className="flex max-w-md flex-col gap-3 px-4">
+          <p className="font-[Doto] text-lg font-bold tracking-wide md:text-xl">
+            Houston, we have a problem.
+          </p>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            You&apos;ve drifted into uncharted cosmos. This page either
+            doesn&apos;t exist, got sucked into a black hole, or the aliens took
+            it. We&apos;re not sure which.
+          </p>
+        </div>
+
+        <CornerBrackets className="mt-2" alwaysShow>
+          <Button asChild>
+            <Link href="/" className="flex gap-3 items-center">
+              <HomeIcon className="size-4" />
+              Beam me home
+            </Link>
+          </Button>
+        </CornerBrackets>
+      </div>
+    </div>
+  );
+}
