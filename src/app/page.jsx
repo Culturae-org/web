@@ -3,6 +3,7 @@ import GamesSection from "@/components/sections/games";
 import ClientsSection from "@/components/sections/clients";
 import PlatformSection from "@/components/sections/platform";
 import Layout from "@/components/layout/layout";
+import AsciiCanvas from "@/components/background/AsciiCanvas";
 
 export const metadata = {
   title: "Culturae",
@@ -10,7 +11,8 @@ export const metadata = {
 
 export default function About() {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden relative">
+      <AsciiCanvas />
       <Layout>
         <Hero />
         <PlatformSection />
